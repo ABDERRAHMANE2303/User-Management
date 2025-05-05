@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>User Management</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:toolbar>
+            <p:toolbarGroup>
+                <p:commandButton value="#{msgs.label.addUser}" icon="pi pi-plus"
+                                 action="addUser.xhtml?faces-redirect=true" />
+            </p:toolbarGroup>
+        </p:toolbar>
+
+        <p:messages id="messages" showDetail="true" closable="true" />
+
+        <p:dataTable var="user" value="#{adminBean.users}" editable="true" rowKey="#{user.id}" paginator="true" rows="10">
+            <p:column headerText="#{msgs.label.username}">
+                <h:outputText value="#{user.username}" />
+            </p:column>
+            <p:column headerText="#{msgs.label.name}">
+                <h:outputText value="#{user.name}" />
+            </p:column>
+            <p:column headerText="#{msgs.label.surname}">
+                <h:outputText value="#{user.surname}" />
+            </p:column>
+            <p:column headerText="#{msgs.label.email}">
+                <h:outputText value="#{user.email}" />
+            </p:column>
+            <p:column headerText="#{msgs.label.actions}">
+                <p:commandButton icon="pi pi-pencil" title="Edit" action="#{adminBean.loadUser(user)}"
+                                 update="@form" />
+                <p:commandButton icon="pi pi-trash" title="Delete"
+                                 action="#{adminBean.deleteUser(user)}"
+                                 update="@form" style="margin-left:5px"
+                                 oncomplete="PF('confirmDelete').hide()" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

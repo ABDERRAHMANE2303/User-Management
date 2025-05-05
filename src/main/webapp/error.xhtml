@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Error</title>
+</h:head>
+
+<h:body>
+    <div class="card">
+        <h2>Authentication Error</h2>
+
+        <p:panel header="Error" severity="error">
+            <h3>Invalid login credentials or insufficient privileges.</h3>
+            <p>Please verify your username and password or contact the administrator.</p>
+
+            <h:form>
+                <p:commandButton value="Back to Login" action="/login.xhtml?faces-redirect=true" />
+            </h:form>
+        </p:panel>
+    </div>
+</h:body>
+</html>
