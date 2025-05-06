@@ -10,7 +10,10 @@
 
     <!-- Application configuration -->
     <application>
-        <message-bundle>messages</message-bundle>
+        <resource-bundle>
+            <base-name>messages</base-name> <!-- No .properties -->
+            <var>msgs</var>
+        </resource-bundle>
         <locale-config>
             <default-locale>en</default-locale>
             <supported-locale>fr</supported-locale>

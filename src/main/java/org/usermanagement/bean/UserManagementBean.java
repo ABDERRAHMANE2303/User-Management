@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@Named
+@Named("userManagementBean")
 @ViewScoped
 public class UserManagementBean implements Serializable {
 

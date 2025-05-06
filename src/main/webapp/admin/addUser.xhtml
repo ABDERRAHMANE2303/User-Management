@@ -4,35 +4,88 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Add User</title>
+    <title>Add New User</title>
 </h:head>
 <h:body>
-    <h:form>
-        <p:panel header="#{msgs.label.addUser}">
+    <div class="card">
+        <h2>Add New User</h2>
+
+        <h:form>
             <p:messages id="messages" showDetail="true" closable="true" />
 
-            <p:panelGrid columns="2">
-                <p:outputLabel for="username" value="#{msgs.label.username}" />
-                <p:inputText id="username" value="#{adminBean.newUser.username}" required="true" />
+            <p:panel header="User Details">
+                <p:panelGrid columns="3" styleClass="ui-noborder">
+                    <p:outputLabel for="username" value="Username:" />
+                    <p:inputText id="username" value="#{userManagementBean.newUser.username}" required="true">
+                        <f:validateLength minimum="3" />
+                    </p:inputText>
+                    <p:message for="username" />
 
-                <p:outputLabel for="name" value="#{msgs.label.name}" />
-                <p:inputText id="name" value="#{adminBean.newUser.name}" required="true" />
+                    <p:outputLabel for="name" value="Name:" />
+                    <p:inputText id="name" value="#{userManagementBean.newUser.name}" required="true" />
+                    <p:message for="name" />
 
-                <p:outputLabel for="surname" value="#{msgs.label.surname}" />
-                <p:inputText id="surname" value="#{adminBean.newUser.surname}" required="true" />
+                    <p:outputLabel for="surname" value="Surname:" />
+                    <p:inputText id="surname" value="#{userManagementBean.newUser.surname}" required="true" />
+                    <p:message for="surname" />
 
-                <p:outputLabel for="email" value="#{msgs.label.email}" />
-                <p:inputText id="email" value="#{adminBean.newUser.email}" required="true" />
+                    <p:outputLabel for="dob" value="Date of Birth:" />
+                    <p:calendar id="dob" value="#{userManagementBean.newUser.dateOfBirth}"
+                                pattern="dd/MM/yyyy" mask="true" required="true">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <p:message for="dob" />
 
-                <p:outputLabel for="password" value="#{msgs.label.password}" />
-                <p:password id="password" value="#{adminBean.newUser.password}" required="true" />
-            </p:panelGrid>
+                    <p:outputLabel for="balance" value="Account Balance:" />
+                    <p:inputNumber id="balance" value="#{userManagementBean.newUser.accountBalance}"
+                                   symbol=" MAD" symbolPosition="s" decimalSeparator="."
+                                   thousandSeparator="," required="true" minValue="0">
+                    </p:inputNumber>
+                    <p:message for="balance" />
 
-            <p:commandButton value="#{msgs.label.save}" action="#{adminBean.saveUser}" update="@form" />
-            <p:commandButton value="#{msgs.label.cancel}" immediate="true"
-                             action="userManagement.xhtml?faces-redirect=true"
-                             style="margin-left:10px" />
-        </p:panel>
-    </h:form>
+                    <p:outputLabel for="streetNumber" value="Street Number:" />
+                    <p:inputText id="streetNumber" value="#{userManagementBean.newUser.streetNumber}" required="true" />
+                    <p:message for="streetNumber" />
+
+                    <p:outputLabel for="streetName" value="Street Name:" />
+                    <p:inputText id="streetName" value="#{userManagementBean.newUser.streetName}" required="true" />
+                    <p:message for="streetName" />
+
+                    <p:outputLabel for="city" value="City:" />
+                    <p:inputText id="city" value="#{userManagementBean.newUser.city}" required="true" />
+                    <p:message for="city" />
+
+                    <p:outputLabel for="postalCode" value="Postal Code:" />
+                    <p:inputText id="postalCode" value="#{userManagementBean.newUser.postalCode}" required="true" />
+                    <p:message for="postalCode" />
+
+                    <p:outputLabel for="country" value="Country:" />
+                    <p:inputText id="country" value="#{userManagementBean.newUser.country}" required="true" />
+                    <p:message for="country" />
+
+                    <p:outputLabel for="role" value="Role:" />
+                    <p:selectOneMenu id="role" value="#{userManagementBean.newUser.role}" required="true">
+                        <f:selectItem itemLabel="Select Role" itemValue="" noSelectionOption="true"/>
+                        <f:selectItem itemLabel="User" itemValue="user" />
+                        <f:selectItem itemLabel="Admin" itemValue="admin" />
+                    </p:selectOneMenu>
+                    <p:message for="role" />
+
+                    <p:outputLabel for="password" value="Password:" />
+                    <p:password id="password" value="#{userManagementBean.newUser.password}"
+                                required="true" feedback="true" toggleMask="true" />
+                    <p:message for="password" />
+                </p:panelGrid>
+
+                <p:divider />
+
+                <p:commandButton value="Save" action="#{userManagementBean.saveUser()}"
+                                 update="messages" style="margin-right: 10px" />
+
+                <p:commandButton value="Cancel" action="/admin/userManagement.xhtml?faces-redirect=true"
+                                 immediate="true" styleClass="ui-button-secondary" />
+            </p:panel>
+        </h:form>
+    </div>
 </h:body>
 </html>

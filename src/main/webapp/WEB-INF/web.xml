@@ -22,9 +22,6 @@
     <context-param>
         <param-name>jakarta.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
-
-         <param-name>primefaces.UPLOADED_FILE_CLEANER</param-name>
-         <param-value>false</param-value>
     </context-param>
 
     <context-param>
