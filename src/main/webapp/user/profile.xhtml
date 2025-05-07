@@ -16,7 +16,7 @@
         <h:form>
             <p:toolbar>
                 <p:toolbarGroup align="right">
-                    <p:commandButton value="#{msgs.label.logout}" action="#{loginBean.logout}" />
+                    <p:commandButton value="#{msgs.label_logout}" action="#{loginBean.logout}" />
                 </p:toolbarGroup>
             </p:toolbar>
 
@@ -24,21 +24,21 @@
 
             <p:panel header="User Information">
                 <p:panelGrid columns="2" rendered="#{!userProfileBean.editMode}" styleClass="ui-noborder">
-                    <h:outputText value="#{msgs.label.username}:" />
+                    <h:outputText value="#{msgs.label_username}:" />
                     <h:outputText value="#{userProfileBean.currentUser.username}" />
 
-                    <h:outputText value="#{msgs.label.name}:" />
+                    <h:outputText value="#{msgs.label_name}:" />
                     <h:outputText value="#{userProfileBean.currentUser.name}" />
 
-                    <h:outputText value="#{msgs.label.surname}:" />
+                    <h:outputText value="#{msgs.label_surname}:" />
                     <h:outputText value="#{userProfileBean.currentUser.surname}" />
 
-                    <h:outputText value="#{msgs.label.dateOfBirth}:" />
+                    <h:outputText value="#{msgs.label_dateOfBirth}:" />
                     <h:outputText value="#{userProfileBean.currentUser.dateOfBirth}">
                         <f:converter converterId="dateConverter" />
                     </h:outputText>
 
-                    <h:outputText value="#{msgs.label.accountBalance}:" />
+                    <h:outputText value="#{msgs.label_accountBalance}:" />
                     <h:outputText value="#{userProfileBean.currentUser.accountBalance}">
                         <f:converter converterId="balanceConverter" />
                     </h:outputText>
@@ -49,13 +49,13 @@
                 </p:panelGrid>
 
                 <p:panelGrid columns="2" rendered="#{userProfileBean.editMode}" styleClass="ui-noborder">
-                    <p:outputLabel for="username" value="#{msgs.label.username}:" />
+                    <p:outputLabel for="username" value="#{msgs.label_username}:" />
                     <p:inputText id="username" value="#{userProfileBean.currentUser.username}" disabled="true" />
 
-                    <p:outputLabel for="name" value="#{msgs.label.name}:" />
+                    <p:outputLabel for="name" value="#{msgs.label_name}:" />
                     <p:inputText id="name" value="#{userProfileBean.currentUser.name}" required="true" />
 
-                    <p:outputLabel for="surname" value="#{msgs.label.surname}:" />
+                    <p:outputLabel for="surname" value="#{msgs.label_surname}:" />
                     <p:inputText id="surname" value="#{userProfileBean.currentUser.surname}" required="true" />
 
                     <p:outputLabel for="dob" value="#{msgs.label.dateOfBirth}:" />

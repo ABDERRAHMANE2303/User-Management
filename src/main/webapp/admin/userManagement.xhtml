@@ -92,7 +92,7 @@
 
         <!-- Edit User Dialog -->
         <h:form id="editForm">
-            <p:dialog header="Edit User" widgetVar="editDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:dialog header="Edit User" widgetVar="editDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" style="max-height: 500px; overflow-y: auto; width: 50vw;" >
                 <p:outputPanel id="editPanel">
                     <p:panelGrid columns="2" rendered="#{not empty userManagementBean.selectedUser}" styleClass="ui-noborder">
                         <p:outputLabel for="username" value="Username:" />
@@ -147,6 +147,13 @@
                         <p:commandButton value="Cancel" onclick="PF('editDialog').hide();" type="button" />
                     </f:facet>
                 </p:outputPanel>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Save" action="#{userManagementBean.updateUser}" update=":editForm:editPanel messages" />
+                    <p:commandButton value="Cancel" onclick="PF('editDialog').hide();" type="button" styleClass="ui-button-secondary" />
+                </f:facet>
+
+
             </p:dialog>
         </h:form>
     </div>
