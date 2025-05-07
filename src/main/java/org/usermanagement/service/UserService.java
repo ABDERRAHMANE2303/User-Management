@@ -1,19 +1,25 @@
 package org.usermanagement.service;
 
 import org.usermanagement.dao.UserDao;
+import org.usermanagement.dao.UserDaoImpl;
 import org.usermanagement.entities.User;
 
-import jakarta.ejb.Stateless;
-import jakarta.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Stateless
+@Named
+@ApplicationScoped
 public class UserService implements Serializable {
 
-    @Inject
     private UserDao userDao;
+
+    public UserService() {
+        // Create the DAO directly instead of relying on @Inject
+        this.userDao = new UserDaoImpl();
+    }
 
     public User findById(Long id) {
         return userDao.findById(id);
@@ -42,6 +48,4 @@ public class UserService implements Serializable {
     public User authenticate(String username, String password) {
         return userDao.authenticate(username, password);
     }
-
-    // Additional methods for business logic, if needed
 }
