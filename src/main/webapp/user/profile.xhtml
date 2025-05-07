@@ -58,40 +58,40 @@
                     <p:outputLabel for="surname" value="#{msgs.label_surname}:" />
                     <p:inputText id="surname" value="#{userProfileBean.currentUser.surname}" required="true" />
 
-                    <p:outputLabel for="dob" value="#{msgs.label.dateOfBirth}:" />
+                    <p:outputLabel for="dob" value="#{msgs.label_dateOfBirth}:" />
                     <p:inputText id="dob" value="#{userProfileBean.currentUser.dateOfBirth}" required="true">
                         <f:converter converterId="dateConverter" />
                     </p:inputText>
 
-                    <p:outputLabel for="balance" value="#{msgs.label.accountBalance}:" />
+                    <p:outputLabel for="balance" value="#{msgs.label_accountBalance}:" />
                     <p:inputText id="balance" value="#{userProfileBean.currentUser.accountBalance}" required="true">
                         <f:converter converterId="balanceConverter" />
                         <f:validator validatorId="positiveBalanceValidator" />
                     </p:inputText>
 
-                    <p:outputLabel for="streetNumber" value="#{msgs.label.streetNumber}:" />
+                    <p:outputLabel for="streetNumber" value="#{msgs.label_streetNumber}:" />
                     <p:inputText id="streetNumber" value="#{userProfileBean.currentUser.streetNumber}" required="true" />
 
-                    <p:outputLabel for="streetName" value="#{msgs.label.streetName}:" />
+                    <p:outputLabel for="streetName" value="#{msgs.label_streetName}:" />
                     <p:inputText id="streetName" value="#{userProfileBean.currentUser.streetName}" required="true" />
 
-                    <p:outputLabel for="city" value="#{msgs.label.city}:" />
+                    <p:outputLabel for="city" value="#{msgs.label_city}:" />
                     <p:inputText id="city" value="#{userProfileBean.currentUser.city}" required="true" />
 
-                    <p:outputLabel for="postalCode" value="#{msgs.label.postalCode}:" />
+                    <p:outputLabel for="postalCode" value="#{msgs.label_postalCode}:" />
                     <p:inputText id="postalCode" value="#{userProfileBean.currentUser.postalCode}" required="true" />
 
-                    <p:outputLabel for="country" value="#{msgs.label.country}:" />
+                    <p:outputLabel for="country" value="#{msgs.label_country}:" />
                     <p:inputText id="country" value="#{userProfileBean.currentUser.country}" required="true" />
                 </p:panelGrid>
 
-                <p:commandButton value="#{msgs.button.edit}" actionListener="#{userProfileBean.toggleEditMode}"
+                <p:commandButton value="#{msgs.button_edit}" actionListener="#{userProfileBean.toggleEditMode}"
                                  update="@form" rendered="#{!userProfileBean.editMode}" />
 
-                <p:commandButton value="#{msgs.button.save}" action="#{userProfileBean.saveProfile}"
+                <p:commandButton value="#{msgs.button_save}" action="#{userProfileBean.saveProfile}"
                                  update="@form" rendered="#{userProfileBean.editMode}" />
 
-                <p:commandButton value="#{msgs.button.cancel}" actionListener="#{userProfileBean.toggleEditMode}"
+                <p:commandButton value="#{msgs.button_cancel}" actionListener="#{userProfileBean.toggleEditMode}"
                                  update="@form" rendered="#{userProfileBean.editMode}" immediate="true" />
             </p:panel>
         </h:form>
