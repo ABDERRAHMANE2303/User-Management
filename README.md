@@ -1,6 +1,6 @@
 # JSF User Management Application
 
-This project demonstrates a **web application** built with **Jakarta Server Faces (JSF)** and **PrimeFaces** for user management. The app will handle **user authentication**, **user management**, and **data validation** using **Java EE / Jakarta EE**, **JPA / Hibernate**, and **MySQL**. The goal of this demo is to showcase basic user operations such as authentication, user management, and form validations.
+This project demonstrates a **web application** built with **Jakarta Server Faces (JSF)** and **PrimeFaces** for user management. The app will handle **user authentication**, **user management**, and **data validation** using **Java EE / Jakarta EE**, **JPA / Hibernate**, and **PostgreSQL**. The goal of this demo is to showcase basic user operations such as authentication, user management, and form validations.
 
 ## Features
 
