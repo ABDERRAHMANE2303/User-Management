@@ -6,6 +6,7 @@ import org.usermanagement.entities.User;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
+import jakarta.persistence.EntityManager;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,6 +20,9 @@ public class UserService implements Serializable {
     public UserService() {
         // Create the DAO directly instead of relying on @Inject
         this.userDao = new UserDaoImpl();
+    }
+    public UserService(EntityManager em) {
+        this.userDao = new UserDaoImpl(em);
     }
 
     public User findById(Long id) {

@@ -16,11 +16,19 @@ public class UserDaoImpl implements UserDao {
     private EntityManager em;
 
     public UserDaoImpl() {
-        // Create the EntityManagerFactory when the DAO is instantiated
         emf = Persistence.createEntityManagerFactory("userManagementPU");
+    }
+    public UserDaoImpl(EntityManager em) {
+        this.em = em;
     }
 
     private EntityManager getEntityManager() {
+        // Use the manually injected EM if present
+        if (this.em != null) {
+            return this.em;
+        }
+
+        // Default fallback
         if (em == null || !em.isOpen()) {
             em = emf.createEntityManager();
         }
